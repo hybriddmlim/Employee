@@ -3,11 +3,13 @@ package webapp.dao;
 import static org.junit.Assert.*;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cglib.proxy.Factory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -28,7 +30,7 @@ public class DeptDaoTest {
 	
 	
 	@Test
-	public void testSelectByDeptno() throws SQLException {
+	public void test1_SelectByDeptno() throws SQLException {
 		DeptDao dao = factory.getBean(DeptDao.class);//getBean 의 DeptDao.class는 bean의 id이다
 		
 		Dept dept = dao.selectByDeptno(10);
@@ -40,7 +42,7 @@ public class DeptDaoTest {
 	}
 	
 	@Test
-	public void testSelectByDeptnoWithEmps() throws SQLException {
+	public void test2_SelectByDeptnoWithEmps() throws SQLException {
 		DeptDao dao = factory.getBean(DeptDao.class);//getBean 의 DeptDao.class는 bean의 id이다
 		
 		Dept dept = dao.selectByDeptnoWithEmps(10);
@@ -56,6 +58,21 @@ public class DeptDaoTest {
 			log.info("emp =" + e.getEmpno()+ " " + e.getEname());
 		}
 
+	}
+	
+	@Test
+	public void test3_SelectAll() {
+		DeptDao dao = factory.getBean(DeptDao.class);
+		
+		List<Dept> list = dao.selectAll();
+		assertNotNull(list);
+		
+		for (Dept d : list) {
+			log.info(d.getDeptno() + " " + d.getDname() + " " + d.getLoc());
+		}
+		
+		
+		
 	}
 
 }

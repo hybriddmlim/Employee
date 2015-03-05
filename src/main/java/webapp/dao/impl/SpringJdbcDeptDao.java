@@ -15,6 +15,7 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
+import org.springframework.validation.BeanPropertyBindingResult;
 
 import webapp.dao.DeptDao;
 import webapp.model.Dept;
@@ -98,8 +99,14 @@ public class SpringJdbcDeptDao implements DeptDao {
 
 	@Override
 	public List<Dept> selectAll(){
-		// TODO Auto-generated method stub
-		return null;
+		log.info("############");
+		log.info("selectAll()");
+		log.info("############");
+		
+		JdbcTemplate template = new JdbcTemplate(dataSource);
+		
+		return template.query(SELECT_ALL, new BeanPropertyRowMapper<Dept>(Dept.class));
+
 	}
 
 	@Override

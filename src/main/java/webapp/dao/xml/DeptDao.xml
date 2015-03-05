@@ -17,15 +17,21 @@
 		d LEFT JOIN emp e ON d.deptno = e.deptno WHERE d.deptno=#{deptno}
 	</select>
 
-<!-- 	<resultMap type="webapp.model.Emp" id="xxx"> -->
-<!-- 		<id property="empno" column="empno" /> -->
-<!-- 		<result property="ename" column="ename" /> -->
-<!-- 		<result property="job" column="job" /> -->
-<!-- 		<result property="mgr" column="mgr" /> -->
-<!-- 		<result property="hiredate" column="hiredate" /> -->
-<!-- 		<result property="sal" column="sal" /> -->
-<!-- 		<result property="comm" column="comm" /> -->
-<!-- 	</resultMap> -->
+
+	<select id="selectAll" resultType="webapp.model.Dept">
+		SELECT *
+		FROM dept
+	</select>
+
+	<!-- <resultMap type="webapp.model.Emp" id="xxx"> -->
+	<!-- <id property="empno" column="empno" /> -->
+	<!-- <result property="ename" column="ename" /> -->
+	<!-- <result property="job" column="job" /> -->
+	<!-- <result property="mgr" column="mgr" /> -->
+	<!-- <result property="hiredate" column="hiredate" /> -->
+	<!-- <result property="sal" column="sal" /> -->
+	<!-- <result property="comm" column="comm" /> -->
+	<!-- </resultMap> -->
 
 
 	<resultMap type="webapp.model.Dept" id="deptWithEmps">
