@@ -82,6 +82,21 @@ public class DeptInfoServiceTest {
 		
 	}
 	
+	@Test
+	public void test4_GetDeptInfoAllWithEmps() {
+		DeptInfoService service = factory.getBean(DeptInfoService.class);
+		List<Dept> list = service.getDeptInfoAll();
+		assertNotNull(list);
+		
+		for (Dept d : list) {
+			log.info(d.getDeptno() + " " + d.getDname() + " " + d.getLoc());
+			for(Emp e : d.getEmps()){
+				log.info(e.getEmpno());
+			}
+		}
+		
+	}
+	
 	
 	
 }
