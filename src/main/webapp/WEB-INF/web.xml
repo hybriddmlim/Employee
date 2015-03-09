@@ -43,7 +43,6 @@
 	
 	<listener>
 	    <listener-class>webapp.listener.MyListener</listener-class>
-	    
 	</listener>
   
   
