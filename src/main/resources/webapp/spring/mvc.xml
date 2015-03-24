@@ -13,6 +13,10 @@
 <!-- 어노테이션을 사용하기위해 해줘야 하는 설정이다 예)@request-Mapping -->	
 <mvc:annotation-driven />
 
+<!-- 컨트롤러 없이 바로 맵핑 처리 하는 방법 http://localhost:8080/Employee/desktop/calendar -->
+<mvc:view-controller path="/calendar" view-name="calendar"/>
+
+
 <!-- jps 위치를 외부에서 접근하지 못하도록 하기위해 WEB-INF밑에 경로를 설정해놓는다. -->
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
